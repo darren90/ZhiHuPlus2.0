@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'ZhiHuPlus2.0' do
+    pod 'Alamofire', '~> 4.4'
+    pod 'SwiftyJSON'
+    pod 'SDWebImage', '~>3.7'
+    pod 'MJExtension', '~> 3.0.10'
+    pod 'MMDrawerController', '~> 0.5.7'
+end
