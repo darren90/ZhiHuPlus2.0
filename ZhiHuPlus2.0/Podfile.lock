@@ -19,7 +19,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
+  - Alamofire
   - MJExtension (~> 3.0.10)
   - MMDrawerController (~> 0.5.7)
   - SDWebImage (~> 3.7)
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: c9eb67c30b0c7e4e715c718bbfb769f239596917
+PODFILE CHECKSUM: ead17b8272e472032e8b4864ee00d75332dada63
 
 COCOAPODS: 1.1.1

@@ -110,7 +110,8 @@ class HomeDetailViewController: UIViewController,UIGestureRecognizerDelegate {
         APINetTools.get(httpUrl, params: nil, success: { (json) -> Void in
             print(json)
             let bodyStr = json["body"] as! String
-            let cssStr:String = json["css"]!![0] as! String
+            let cssArr = json["css"] as! [String]
+            let cssStr: String = cssArr[0]
             
             if let _ = JSON(json)["image"].string{
                 self.imageUrl = json["image"] as! String

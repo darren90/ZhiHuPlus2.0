@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let url = URL(string: "sdfsdfsd");
+        Alamofire.request("sdf").responseJSON { (_) in
+
+        }
+//        Alamofire.request(url, method: .get, parameters: nil, encoding: <#T##ParameterEncoding#>, headers: nil){
+//
+//        }
     }
 
     override func didReceiveMemoryWarning() {

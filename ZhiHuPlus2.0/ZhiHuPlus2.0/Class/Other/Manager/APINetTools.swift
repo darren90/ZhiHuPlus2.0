@@ -32,28 +32,43 @@ class APINetTools: NSObject {
         
         
         if let paramss = params{
-            
-            Alamofire.request(.GET,urlStr, parameters: paramss).responseJSON { (_, _, result) -> Void in
-                switch result {
-                case let .success(json):
-                    //print(json)
-                    success(json: json)
-                case let .failure(_, error):
-                    //print(error)
-                    fail(error: error)
+            Alamofire.request(urlStr, method: .get, parameters: paramss).responseJSON { (returnResult) in
+//                print("secondMethod --> 参数 --> returnResult = \(returnResult)")
+                if (returnResult.result.isSuccess){
+                    success(returnResult.value! as AnyObject)
+                }else if(returnResult.result.isFailure){
+                    fail(returnResult.error!)
                 }
             }
+
+//            Alamofire.request(.GET,urlStr, parameters: paramss).responseJSON { (_, _, result) -> Void in
+//                switch result {
+//                case let .success(json):
+//                    //print(json)
+//                    success(json: json)
+//                case let .failure(_, error):
+//                    //print(error)
+//                    fail(error: error)
+//                }
+//            }
         }else{
-            Alamofire.request(.GET,urlStr).responseJSON { (_, _, result) -> Void in
-                switch result {
-                case let .success(json):
-                    //                    print(json)
-                    success(json: json)
-                case let .failure(_, error):
-                    //                    print(error)
-                    fail(error: error)
+            Alamofire.request(urlStr, method: .get).responseJSON { (returnResult) in
+                if (returnResult.result.isSuccess){
+                    success(returnResult.value! as AnyObject)
+                }else if(returnResult.result.isFailure){
+                    fail(returnResult.error!)
                 }
             }
+//            Alamofire.request(.GET,urlStr).responseJSON { (_, _, result) -> Void in
+//                switch result {
+//                case let .success(json):
+//                    //                    print(json)
+//                    success(json: json)
+//                case let .failure(_, error):
+//                    //                    print(error)
+//                    fail(error: error)
+//                }
+//            }
         }
     }
     
@@ -69,25 +84,19 @@ class APINetTools: NSObject {
         let urlStr = baseUrl + url
         
         if let paramss = params{
-            Alamofire.request(.POST,urlStr, parameters: paramss).responseJSON { (_, _, result) -> Void in
-                switch result {
-                case let .success(json):
-                    //                    print(json)
-                    success(json: json)
-                case let .failure(_, error):
-                    //                    print(error)
-                    fail(error: error)
+            Alamofire.request(urlStr, method: .post, parameters: paramss).responseJSON { (returnResult) in
+                if (returnResult.result.isSuccess){
+                    success(returnResult.value! as AnyObject)
+                }else if(returnResult.result.isFailure){
+                    fail(returnResult.error!)
                 }
             }
         }else{
-            Alamofire.request(.POST,urlStr).responseJSON { (request, response, result) -> Void in
-                switch result {
-                case let .success(json):
-                    //                    print(json)
-                    success(json: json)
-                case let .failure(_, error):
-                    //                    print(error)
-                    fail(error: error)
+            Alamofire.request(urlStr, method: .post).responseJSON {(returnResult) in
+                if (returnResult.result.isSuccess){
+                    success(returnResult.value! as AnyObject)
+                }else if(returnResult.result.isFailure){
+                    fail(returnResult.error!)
                 }
             }
         }
