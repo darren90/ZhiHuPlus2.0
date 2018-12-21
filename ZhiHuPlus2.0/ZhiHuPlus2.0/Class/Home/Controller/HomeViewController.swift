@@ -85,7 +85,8 @@ class HomeViewController: UITableViewController {
 //            print(homeData)
             for i in 0 ..< homeData.count   {
                 let homeId = String(describing: homeData[i]["id"]!)
-                let img = homeData[i]["images"]![0] as! String
+                let images = homeData[i]["images"] as! [String]
+                let img = images[0] as! String
                 let title = homeData[i]["title"] as! String
     
                 self.dataArray.append(HomeModel(id: homeId, image: img, title: title))
